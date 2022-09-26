@@ -1,0 +1,54 @@
+{% extends './partials/layout.html' %}
+
+{% block content %}
+<h1>Register</h1>
+<form action="{{ url_for('auth.register') }}" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset id="email-field">
+            {{ form.email.label }}
+            {{ form.email(class="form-control", placeholder = "Email") }}
+        </fieldset>
+
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <fieldset id="username-field">
+            {{ form.username.label }}
+            {{ form.username(class="form-control", placeholder = "Enter username here") }}
+        </fieldset>
+
+    </div>
+    <div class="form-group">
+        <fieldset id="first_name-field">
+            {{ form.first_name.label }}
+            {{ form.first_name(class="form-control", placeholder = "First Name") }}
+        </fieldset>
+
+    </div>
+    <div class="form-group">
+        <fieldset id="last_name-field">
+            {{ form.last_name.label }}
+            {{ form.last_name(class="form-control", placeholder = "Last Name") }}
+        </fieldset>
+
+    </div>
+    <div class="form-group">
+        <fieldset id="password-field">
+            {{ form.password.label }}
+            {{ form.password(class="form-control", placeholder = "Enter password here") }}
+        </fieldset>
+
+    </div>
+    <div class="form-group">
+
+        <fieldset id="confirm-password-field">
+            {{ form.confirm-password.label }}
+            {{ form.confirm-password(class="form-control", placeholder = "Confirm password here") }}
+        </fieldset>
+
+    </div>
+    <p><small>Already have an account? Please <a href="{{ url_for('auth.login') }}">Login here.</a></small></p>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock content %}
